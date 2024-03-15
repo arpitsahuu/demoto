@@ -66,16 +66,14 @@ export default function Home() {
     <div className="w-[100vw]">
       <Layout>
         <Container bgColor={""}>
-          {/* <div id="homdiv" className="w-full mt-20 h-20 bg-black">
-            <img className=" rounded-sm" src="/2.png" alt="" />
-          </div> */}
+      
           <div id="homdiv" className="w-full mt-20 ">
             <img className=" rounded-sm" src="/2.png" alt="" />
           </div>
-          <h2 className="mt-3 sm:mt-28  sm:text-5xl  text-gray-600 py-5 text-center font-bold text-[30px] px-11 leading-10 ">
-            Find your dream job now
+          <h2 className="mt-3 uppercase sm:mt-28  sm:text-5xl  text-[#333333] py-5 text-center font-bold text-[30px] px-11 leading-10 ">
+            FIND YOUR DREAM JOB NOW
           </h2>
-          <h4 className=" font-medium uppercase text-center  text-xs text-slate-700 sm:text-lg sm:text-black">
+          <h4 className=" font-medium uppercase text-center  text-xs text-slate-600 sm:text-lg sm:text-black">
             SATISFIED JOBS for you to exploer
           </h4>
           <div
@@ -165,46 +163,46 @@ export default function Home() {
             </button>
           </div>
           <div className="w-full flex justify-center items-center gap-5 mt-8 sm:mt-32">
-            <button className="effectSerchbtnone  font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2">
+            <button className="effectSerchbtnone  font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               {" "}
               Remote <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className=" effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               MNC <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2" id="effectSerchbtnthree">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 shadow-sm hover:shadow-md" id="effectSerchbtnthree">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2 smbtn">
+            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2 smbtn shadow-sm hover:shadow-md">
               Engineering <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn shadow-sm hover:shadow-md">
               Fresher <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               Fortune 500 <FaChevronRight className=" text-slate-600" />
             </button>
           </div>
           <div className="w-full flex justify-center items-center gap-5  mt-5">
-            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2">
+            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               Remote <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className="effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className="effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               MNC <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn shadow-sm hover:shadow-md">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2" id="effectSerchbtnfour">
+            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2 shadow-sm hover:shadow-md" id="effectSerchbtnfour">
               Engineering <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 shadow-sm hover:shadow-md">
               Fresher <FaChevronRight className=" text-slate-600 " />
             </button>
           </div>
 
           <div className="mt-2 sm:mt-32">
-            <h2 className="sm:text-3xl text-xl text-center mt-3 sm:mt-5">
+            <h2 className="sm:text-3xl text-xl text-center mt-3 sm:mt-5 text-[#333333]">
               SATISFIED JOB TOP FEATURS
             </h2>
             <div></div>
@@ -328,7 +326,7 @@ export default function Home() {
 
         <div className=" md:py-[80px]">
           <Container bgColor={"#F4F2F6"}>
-            <p className="sm:text-3xl text-xl font-[900] text-center mt-20 py-[10px] md:py-[10px] mb-16">
+            <p className="sm:text-3xl text-xl font-[900] text-center mt-20 py-[10px] md:py-[10px] mb-16 text-[#333333] uppercase">
               Job Openings in Top companies
             </p>
           </Container>
@@ -379,7 +377,7 @@ export default function Home() {
 
         <div className="">
           <Container bgColor={"#F4F2F6"}>
-            <p className="sm:text-3xl text-xl font-[900] text-center  py-[10px] md:py-[10px] mb-16 mt-8 sm:mt-1">
+            <p className="sm:text-3xl text-xl font-[900] text-center  py-[10px] md:py-[10px] mb-16 mt-8 sm:mt-1 text-[#333333] uppercase">
               Recent Job Openings
             </p>
           </Container>
