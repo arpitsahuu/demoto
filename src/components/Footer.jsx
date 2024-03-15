@@ -14,7 +14,7 @@ const Footer = () => {
         <div>
           <div className="flex  gap-[20px]">
             <div className="w-[80px] flex  items-center justify-center">
-            <img src="./logo.png" className="w-[60px]" alt="" />
+            <img src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710332234/avaters/yeixhkqcfb4t15gxgqzh.jpg" className="w-[60px]" alt="" />
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-[17px] font-semibold">

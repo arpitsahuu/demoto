@@ -66,10 +66,16 @@ export default function Home() {
     <div className="w-[100vw]">
       <Layout>
         <Container bgColor={""}>
-          <h2 className="mt-28 sm:mt-28  sm:text-5xl  text-gray-600 py-5 text-center font-bold text-2xl px-11 ">
+          {/* <div id="homdiv" className="w-full mt-20 h-20 bg-black">
+            <img className=" rounded-sm" src="/2.png" alt="" />
+          </div> */}
+          <div id="homdiv" className="w-full mt-20 ">
+            <img className=" rounded-sm" src="/2.png" alt="" />
+          </div>
+          <h2 className="mt-3 sm:mt-28  sm:text-5xl  text-gray-600 py-5 text-center font-bold text-[30px] px-11 leading-10 ">
             Find your dream job now
           </h2>
-          <h4 className=" font-medium uppercase text-center text-sm mt-2 sm:text-lg">
+          <h4 className=" font-medium uppercase text-center  text-xs text-slate-700 sm:text-lg sm:text-black">
             SATISFIED JOBS for you to exploer
           </h4>
           <div
@@ -144,11 +150,11 @@ export default function Home() {
             )}
           </div>
 
-          <div className="w-full flex justify-center gap-5 mt-9 text-slate-600">
+          <div className="w-full flex justify-center gap-5 mt-4 sm:mt-9 text-slate-600">
             <button className="serchbtn border rounded-3xl px-4 py-1 border-slate-300" id="mentbtn">
               ment stack developer
             </button>
-            <button className="border rounded-3xl px-4 py-1 border-slate-300">
+            <button className="border text-xs sm:text-sm rounded-3xl px-4 py-1 border-slate-300">
               full stack develooper
             </button>
             <button
@@ -158,8 +164,7 @@ export default function Home() {
               Front end developer
             </button>
           </div>
-
-          <div className="w-full flex justify-center items-center gap-5 mt-24 sm:mt-32">
+          <div className="w-full flex justify-center items-center gap-5 mt-8 sm:mt-32">
             <button className="effectSerchbtnone  font-medium py-4 px-8 border border-slate-300  rounded-md flex items-center gap-2">
               {" "}
               Remote <FaChevronRight className=" text-slate-600" />
@@ -170,10 +175,10 @@ export default function Home() {
             <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2" id="effectSerchbtnthree">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2">
+            <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2 smbtn">
               Engineering <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn">
               Fresher <FaChevronRight className=" text-slate-600" />
             </button>
             <button className="effectSerchbtnone font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
@@ -187,7 +192,7 @@ export default function Home() {
             <button className="effectSerchbtntwo font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
               MNC <FaChevronRight className=" text-slate-600" />
             </button>
-            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2">
+            <button className=" font-medium py-4 px-8 border border-slate-300 rounded-md flex items-center gap-2 smbtn">
               Analytics <FaChevronRight className=" text-slate-600" />
             </button>
             <button className=" font-medium py-4 px-8 border border-slate-300 flex items-center gap-2" id="effectSerchbtnfour">
@@ -198,7 +203,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="mt-16 sm:mt-32">
+          <div className="mt-2 sm:mt-32">
             <h2 className="sm:text-3xl text-xl text-center mt-3 sm:mt-5">
               SATISFIED JOB TOP FEATURS
             </h2>
