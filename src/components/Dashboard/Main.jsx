@@ -259,7 +259,7 @@ const Main = () => {
                         Doanload
                       </a>
                     ) : (
-                      <Link href={`/watchResumeEmploye/${e?.studentId._id}`}>
+                      <Link href={`/WatchResumeEmploye/${e?.studentId._id}`}>
                         Watch
                       </Link>
                     )}

@@ -66,7 +66,6 @@ export default function Home() {
     <div className="w-[100vw]">
       <Layout>
         <Container bgColor={""}>
-      
           <div id="homdiv" className="w-full mt-20 ">
             <img className=" rounded-sm" src="/2.png" alt="" />
           </div>
