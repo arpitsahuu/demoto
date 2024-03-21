@@ -100,7 +100,7 @@ const Header = () => {
                 className="px-3 py-1  border-[#4080ED]  border-2  hover:text-white hover:bg-[#4080ED] rounded-[5px] text-green"
                 style={{ transition: "all 0.5s" }}
               >
-                Student
+                Find Jobs
               </Link>
 
               <Link
@@ -108,7 +108,7 @@ const Header = () => {
                 className="px-3 py-1  border-green border-2 text-white bg-[#4080ED] hover:bg-transparent hover:text-[#4080ED] 	 rounded-[5px] "
                 style={{ transition: "all 0.5s" }}
               >
-                Employee
+                Company
               </Link>
             </>
           )}
@@ -213,13 +213,13 @@ const Header = () => {
           ) : (
             <>
               <Link href={"/loginEmployee"} className="text-green mt-3 sm:mt-0">
-                Employer
+              Company
               </Link>
               <Link
                 href={"/loginUser"}
                 className="bg-green px-2 py-1 rounded-md text-white mt-3 sm:mt-0"
               >
-                Candidate
+                Find Jobs
               </Link>
             </>
           )}

@@ -156,6 +156,22 @@ const Details = () => {
                     </p>
                   ))}
                 </div>
+                <div>
+                  <h1 className="text-xl font-semibold">Description</h1>
+                  {job?.description?.map((description, index) => (
+                    <ol key={description} className="text-base py-1 capitalize list-disc ps-4">
+                      <li>{description}</li>
+                    </ol>
+                  ))}
+                </div>
+                <div>
+                  <h1 className="text-xl font-semibold">Preferences</h1>
+                  {job?.preferences?.map((preferences, index) => (
+                    <ol key={preferences} className="text-base py-1 capitalize list-disc ps-4">
+                      <li>{preferences}</li>
+                    </ol>
+                  ))}
+                </div>
                 <div className="mt-8">
                   <h1 className="text-2xl font-semibold mb-4">
                     Employer Contact Details
@@ -164,15 +180,20 @@ const Details = () => {
                     <p className="text-lg mb-2">
                       Phone:{" "}
                       <a
-                        href={`https://api.whatsapp.com/send?phone=${job?.employer?.contact}`}
-                        target="_blank"
+                      href={`tel:+91-${job?.employer?.contact}`}
+    
+                        // href={`https://api.whatsapp.com/send?phone=${job?.employer?.contact}`}
+                        target="_top"
                         rel="noopener noreferrer"
                         className="text-blue-500 hover:underline"
                       >
                         {job?.employer?.contact}
                       </a>
                     </p>
-                    <p className="text-lg">Email: {job?.employer?.email}</p>
+                    <a 
+                  href={job?.employer?.email}
+                  target="_top"
+                  className="text-lg">Email: {job?.employer?.email}</a>
                   </div>
                 </div>
 

@@ -22,27 +22,48 @@ import { FaSearch } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import axios from "axios";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function Home() {
   var array = [1, 2, 3, 4, 5, 6];
   const router = useRouter();
   const { student, error, loading } = useSelector((state) => state.student);
+  const { employee } = useSelector((state) => state.employee);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchLocation, setsearchLocation] = useState("");
   const [jobs, setJobs] = useState([]);
   const basePath = `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/user`;
+  const [topCompany, settopCompany] = useState([]);
+  const [resentJobs, setresentJobs] = useState([]);
 
   const searchJobs = async () => {
     const response = await axios.post(
       `${basePath}/search?q=${searchTerm}&location=${searchLocation}`
     );
     setJobs(response.data);
-    console.log(response.data);
+  };
+
+  const topcompany = async () => {
+    const response = await axios.post(
+      `${basePath}/topcompony`
+    );
+    settopCompany(response.data.jobs);
+    console.log(response.data.jobs);
+  };
+
+  const resentCompany = async () => {
+    const response = await axios.post(
+      `${basePath}/resentjobs`
+    );
+    setresentJobs(response.data.jobs);
+    console.log(response.data.jobs);
   };
 
   useEffect(() => {
     dispatch(currentStudent());
+    topcompany();
+    resentCompany();
   }, []);
 
   const redirectToJob = () => {
@@ -50,10 +71,28 @@ export default function Home() {
   };
 
   const onJobClick = (id) =>{
-    if(!student){
+    if(student){
+      router.push(`./details/${id}`)
+    }
+    else if(employee){
+      toast("pleas Login as Student")
+    }
+    else{
+      router.push("./loginUser")
+
+    }
+  }
+
+  const onViewAllClick = (id) =>{
+    if(student){
+      router.push(`/Job`)
+    }
+    else if(employee){
+      toast("pleas Login as Student")
+    }
+    else{
       router.push("./loginUser")
     }
-    router.push(`./details/${id}`)
   }
 
   useEffect(() => {
@@ -69,7 +108,7 @@ export default function Home() {
           <div id="homdiv" className="w-full mt-20 ">
             <img className=" rounded-sm" src="/2.png" alt="" />
           </div>
-          <h2 className="mt-3 uppercase sm:mt-28  sm:text-5xl  text-[#333333] py-5 text-center font-bold text-[30px] px-11 leading-10 ">
+          <h2 className="mt-3 uppercase sm:mt-28  sm:text-5xl  text-[#333333] py-5 text-center font-bold text-[30px] px-11 leading-10 leadintep ">
             FIND YOUR DREAM JOB NOW
           </h2>
           <h4 className=" font-medium uppercase text-center  text-xs text-slate-600 sm:text-lg sm:text-black">
@@ -330,34 +369,49 @@ export default function Home() {
             </p>
           </Container>
           <div className=" w-[100vw] flex items-center  overflow-x-auto ">
-            {array.map((e, i) => (
+            {topCompany?.map((e, i) => (
               <>
                 <div
                   key={i}
-                  className="w-[250px] md:w-[300px] flex-shrink-0 h-[230px] py-[25px] md:py-[25px] px-[10px] md:px-[20px]  ml-[30px]  rounded-lg  border-gray-50 hover:border-gray-200  hover:shadow-md border border-slate-300"
+                  onClick={() => onJobClick(e._id)}
+                  className="w-[250px] md:w-[300px] flex-shrink-0 h-[230px] py-[25px] md:py-[25px] px-[10px] md:px-[20px]  ml-[30px]  rounded-lg  border-gray-50 hover:border-gray-200  hover:shadow-md border border-slate-300 overflow-hidden"
                 >
                   <div className="flex gap-4 pb-1 ">
-                    <img
+                    {/* <img
                       src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710311927/avaters/padkgv4yvswh2qzu0ybv.png"
                       className="w-[45px] rounded-lg"
                       alt=""
-                    />
+                    /> */}
+                    <img
+                      src={e?.employer?.organisationlogo.url}
+                      className="w-[45px] rounded-lg"
+                      alt=""
+                    />  
                     <div className="flex flex-col ms-2">
-                      <h3 className="  ">MERN Web Developer</h3>
-                      <h6 className=" text-[#424242] text-start ">Google</h6>
+                      <h3 className="  ">{e?.title}</h3>
+                      <h6 className=" text-[#424242] text-start ">{e?.employer?.organisationname}</h6>
                     </div>
                   </div>
+                  {
+                    e?.skills?.length != 0 &&
                   <div className=" md:text-sm flex mt-4 ms-2 sm:gap-2 gap-1 text-[8px]  text-[]">
-                    <div className="px-2 py-1 rounded-md bg-[#ddd] ">html</div>
+
+                    { e?.skills?.slice(0, 2).map((skills) =>(
+                      <div className="px-2 py-1 rounded-md bg-[#ddd] ">{skills}</div>
+                    ))}
+
+                    {/* <div className="px-2 py-1 rounded-md bg-[#ddd] ">html</div>
                     <div className="px-2 py-1 rounded-md bg-[#ddd] ">CSS</div>
                     <div className="px-2 py-1 rounded-md bg-[#ddd] ">
                       JavaScript
                     </div>
-                    <div className=" px-2 py-1 rounded-md bg-[#ddd]">React</div>
+                    <div className=" px-2 py-1 rounded-md bg-[#ddd]">React</div> */}
                   </div>
+
+                  }
                   <div className="w-full mt-16 text-[#424242]   flex justify-between">
-                    <h6>$98000/year</h6>
-                    <h6>India</h6>
+                    <h6>₹{e?.salary}/year</h6>
+                    <h6>{e?.location}</h6>
                   </div>
                 </div>
               </>
@@ -381,34 +435,46 @@ export default function Home() {
             </p>
           </Container>
           <div className=" w-[100vw] flex items-center  overflow-x-auto ">
-            {array.map((e, i) => (
+            {resentJobs.map((e, i) => (
               <>
                 <div
                   key={i}
+                  onClick={() => onJobClick(e._id)}
                   className="w-[250px] md:w-[300px] flex-shrink-0 h-[230px] py-[25px] md:py-[25px] px-[10px] md:px-[20px]  ml-[30px] rounded-lg border-gray-50 hover:border-gray-200  hover:shadow-md border border-slate-300 "
                 >
                   <div className="flex gap-4 pb-1 ">
                     <img
-                      src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710311927/avaters/padkgv4yvswh2qzu0ybv.png"
+                      src={e?.employer?.organisationlogo.url}
                       className="w-[45px] rounded-lg"
                       alt=""
                     />
                     <div className="flex flex-col ms-2">
-                      <h3 className=" ">MERN Web Developer</h3>
-                      <h6 className=" text-[#424242] text-start ">Google</h6>
+                      <h3 className=" ">{e?.title}</h3>
+                      <h6 className=" text-[#424242] text-start ">{e?.employer?.organisationname}</h6>
                     </div>
                   </div>
-                  <div className=" md:text-sm flex mt-4 ms-2 sm:gap-2 gap-1 text-[8px]  ">
-                    <div className="px-2 py-1 rounded-md bg-[#ddd] ">html</div>
+
+                  {
+                    e?.skills?.length != 0 &&
+                  <div className=" md:text-sm flex mt-4 ms-2 sm:gap-2 gap-1 text-[8px]  text-[]">
+
+                    { e?.skills?.slice(0, 2).map((skills) =>(
+                      <div className="px-2 py-1 rounded-md bg-[#ddd] ">{skills}</div>
+                    ))}
+
+                    {/* <div className="px-2 py-1 rounded-md bg-[#ddd] ">html</div>
                     <div className="px-2 py-1 rounded-md bg-[#ddd] ">CSS</div>
                     <div className="px-2 py-1 rounded-md bg-[#ddd] ">
                       JavaScript
                     </div>
-                    <div className=" px-2 py-1 rounded-md bg-[#ddd]">React</div>
+                    <div className=" px-2 py-1 rounded-md bg-[#ddd]">React</div> */}
                   </div>
+
+                  }
+                  
                   <div className="w-full mt-16 text-[#424242]   flex justify-between">
-                    <h6>$98000/year</h6>
-                    <h6>India</h6>
+                    <h6>₹{e?.salary}/year</h6>
+                    <h6>{e?.location}</h6>
                   </div>
                 </div>
               </>
@@ -416,7 +482,7 @@ export default function Home() {
           </div>
 
           <div className="w-full text-center my-16 ">
-            <button className=" m-auto text-white py-3 px-4 rounded-md  font-medium bg-[#4080ED] flex items-center justify-center">
+            <button onClick={onViewAllClick} className=" m-auto text-white py-3 px-4 rounded-md  font-medium bg-[#4080ED] flex items-center justify-center">
               <span className="flex items-center gap-1 px-2">
                 <p>View all</p>
                 <RiArrowRightSLine className="text-lg" />
@@ -424,119 +490,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-
-        {/* <div className="min-h-[90vh] md:py-[80px]">
-          <Container bgColor={"#F4F2F6"}>
-            <p className="text-3xl font-[900] text-center py-[20px] md:py-[40px]">
-              Job Openings in Top companies
-            </p>
-          </Container>
-          <div className=" w-[100vw] min-h-[50vh] flex items-center  overflow-x-auto ">
-            {array.map((e, i) => (
-              <>
-                <div
-                  key={i}
-                  className="w-[350px] md:w-[400px] flex-shrink-0 h-[300px] py-[25px] md:py-[30px] px-[10px] md:px-[40px]  ml-[40px] bg-white rounded-lg flex justify-between flex-col"
-                >
-                  <img src="./c1.webp" className="w-[80px]" alt="" />
-
-                  <div className="flex flex-col gap-3">
-                    <p className="subheading">Baja Finaxe limahpeoje</p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolor{" "}
-                    </p>
-                  </div>
-                  <div>
-                    <button className="font-[500] text-[18px] text-green flex items-center ">
-                      <span>View jobs</span>
-                      <RiArrowRightSLine />
-                    </button>
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-
-          <div className="w-full text-center">
-            <button className="btn flex items-center justify-center">
-              <span className="flex items-center gap-1 px-2">
-                <p>View all</p>
-                <RiArrowRightSLine className="text-lg" />
-              </span>
-            </button>
-          </div>
-        </div> */}
-
-        {/* <div className="min-h-[90vh] md:h-[80vh] flex items-center">
-          <div className="flex flex-col md:flex-row">
-            <div className="w-[100vw] md:w-[30vw] px-[10px] md:px-0 text-white h-[350px] md:h-[450px]  bg-green md:flex items-center justify-center flex-col relative">
-              <div className=" text-white  font-semibold">
-                <div className="icon w-[70px] my-[25px] bg-transparent rounded-ful flex items-center justify-center h-[70px]">
-                  <MdReviews className="text-3xl" />
-                </div>
-                <h1 className="text-[30px]">
-                  Join the community <br /> of 5 crore satisfied <br /> job
-                  seekers...
-                </h1>
-                <div className="rating flex gap-1 my-[20px] items-center  ">
-                  <p>Play Store Ratings</p>
-                  <span className="flex gap-2 text-[#FFB400]">
-                    <IoStar /> <IoStar /> <IoStar />
-                    <IoStar />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="w-[100vw] pl-[350px] md:pl-0 px-[20px] md:w-[70vw] h-[450px] md:px-[20px] flex items-center justify-center gap-3 overflow-x-auto">
-              {array.map((e,i) => {
-                return (
-                  <>
-                    <div key={i} className="h-[280px] flex-shrink-0 w-[90vw] md:w-[500px] bg-white rounded-lg px-[22px]">
-                      <div className="gap-2 text-black  font-[500]">
-                        <div className="flex items-center  gap-3">
-                          <img
-                            src="./profile.jpg"
-                            className="w-[90px] -mt-[20px] h-[90px] rounded-md"
-                            alt=""
-                          />
-
-                          <div>
-                            <div className="flex gap-3 py-[11px] h-fit">
-                              <p className="text-md font-semibold">
-                                Aniket Patidar
-                              </p>
-                              <div className="text-green font-[500] flex  items-center">
-                                <TiTick />
-                                <p className=" ">Placed</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <p>4.5</p>
-                              <span className="flex text-[#FFB400]">
-                                <IoIosStar className="" />
-                                <IoIosStar className="" />
-                                <IoIosStar className="" />
-                                <IoIosStar className="" />
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-[22px] text-[14px]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Similique alias aperiam maxime iure in labore sapiente
-                        eligendi explicabo assumenda quibusdam modi vitae, odio
-                        sint consequuntur! Quibusdam, doloremque. Nostrum,
-                        deleniti qui!
-                      </p>
-                    </div>
-                  </>
-                );
-              })}
-            </div>
-          </div>
-        </div> */}
       </Layout>
     </div>
   );

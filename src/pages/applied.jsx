@@ -20,6 +20,7 @@ const ApplicationCard = ({ status, jobId }) => {
         return "bg-gray-200";
     }
   };
+ 
 
   return (
     <div className={`bg-white w-full rounded-[10px] overflow-hidden shadow-lg mb-4`}>
@@ -61,7 +62,7 @@ const ApplicationCard = ({ status, jobId }) => {
 const Applied = () => {
   const dispatch = useDispatch();
   const { applications } = useSelector((state) => state.student);
-
+console.log(applications)
   useEffect(() => {
     dispatch(getApplication());
   }, []);

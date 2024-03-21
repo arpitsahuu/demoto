@@ -45,7 +45,19 @@ export const registerEmployee = (userData) => async (dispatch) => {
         dispatch(setLoading(false));
         localStorage.setItem("token", data.token);
         dispatch(currentEmployee())
+    } catch (error) {
+        dispatch(setLoading(false));
+        console.error(error);
+        dispatch(setError(error?.response?.data?.message || "register failed"));
+    }
+}
 
+export const AddCompanydetails = (userData) => async (dispatch) => {
+    try {
+        const { data } = await axios.post(`${basePath}/signup`, { ...userData });
+        dispatch(setLoading(false));
+        localStorage.setItem("token", data.token);
+        dispatch(currentEmployee())
     } catch (error) {
         dispatch(setLoading(false));
         console.error(error);

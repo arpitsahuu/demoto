@@ -35,9 +35,9 @@ const MakeEmployeAdmin = async (id) =>{
 } 
 
 const Deletemploer = async (id) =>{
-  const response = await axios.post(`${basePath}/admin/delete/user/${id}`, null, config()
+  const response = await axios.post(`${basePath}/admin/delete/employer/${id}`, null, config()
   );
-  setUsers(response.data.user);
+  setemploye(response.data.user);
 }
   
 
@@ -91,7 +91,7 @@ useEffect(() => {
                 <td className="py-2 px-4 ">{employe?.email}</td>
                 <td className="py-2 px-4  ">{employe?.jobs?.length}</td>
                 <td className="py-2 px-4 ">
-                <button  className=" bg-sky-800 text-white px-2 py-1 rounded-md  ">Delete</button>
+                <button onClick={() => Deletemploer(employe._id)}  className=" bg-sky-800 text-white px-2 py-1 rounded-md  ">Delete</button>
                 </td>
               </tr>
             ))}
