@@ -12,7 +12,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { registerEmployee } from "@/redux/actions/employeeAction";
+import { employerAddCompanyDeatils, registerEmployee } from "@/redux/actions/employeeAction";
 
 const addComponyDeatils = () => {
   const router = useRouter();
@@ -32,16 +32,13 @@ const addComponyDeatils = () => {
         location,
         website
     }
+    dispatch(employerAddCompanyDeatils(company)).then(() =>{
+      router.push("/")
+    })
+    router.push("/")
 
   }
 
- 
-
-  useEffect(() => {
-    if (employee) {
-      router.push("/");
-    }
-  }, [employee]);
 
   // useEffect(() => {
   //   if (error) {
@@ -193,7 +190,7 @@ const addComponyDeatils = () => {
           </div>
 
           <div></div>
-          <button className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#4080ED] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
+          <button onClick={onSubmit} className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#4080ED] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
             Add Deatils
           </button>
           

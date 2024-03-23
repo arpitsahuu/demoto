@@ -38,6 +38,19 @@ export const loginEmployee = (userData) => async (dispatch) => {
     }
 }
 
+export const employerAddCompanyDeatils = (userData) => async (dispatch) => {
+    try {
+        dispatch(setLoading(true));
+        const { data } = await axios.post(`${basePath}/addCompanyDeatils`, { ...userData } ,  config());
+        dispatch(setLoading(false));
+        dispatch(currentEmployee())
+    } catch (error) {
+        dispatch(setLoading(false));
+        console.error(error);
+        dispatch(setError(error?.response?.data?.message || "login failed"));
+    }
+}
+
 export const registerEmployee = (userData) => async (dispatch) => {
     try {
         dispatch(setLoading(true));

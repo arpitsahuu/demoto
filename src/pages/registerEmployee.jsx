@@ -26,14 +26,16 @@ const RegisterEmployee = () => {
   } = useForm();
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(registerEmployee(data));
+    dispatch(registerEmployee(data)).then(() =>{
+      router.push("/addComponyDeatils")
+    })
   });
 
   useEffect(() => {
     if (employee) {
       router.push("/");
     }
-  }, [employee]);
+  }, []);
 
   // useEffect(() => {
   //   if (error) {
