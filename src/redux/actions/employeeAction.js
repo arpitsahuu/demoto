@@ -1,5 +1,9 @@
 import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { setEmployee, setLoading, setError, setAllApplications } from '../sclices/employeeSclice';
+
 const basePath = `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/employer`
 
 const config = () => {
@@ -19,7 +23,6 @@ export const currentEmployee = (userData) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "get current user failed"));
     }
 }
@@ -27,14 +30,32 @@ export const currentEmployee = (userData) => async (dispatch) => {
 export const loginEmployee = (userData) => async (dispatch) => {
     try {
         dispatch(setLoading(true));
-        const { data } = await axios.post(`${basePath}/signin`, { ...userData });
+        const { data } = await axios.post(`${basePath}/signin`, { ...userData })
         dispatch(setLoading(false));
         localStorage.setItem("token", data.token);
         dispatch(currentEmployee())
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
-        dispatch(setError(error?.response?.data?.message || "login failed"));
+        let errorMessage = "Login failed"; // Default error message
+
+        if (error?.response?.status === 500) { // 401 is the standard code for unauthorized
+            errorMessage = "Wrong password provided. Please try again.";
+        } else if (error?.response?.data?.message) {
+            errorMessage = error.response.data.message; // Server-provided error message
+        }
+        
+        dispatch(setError(errorMessage));
+        
+        toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        // dispatch(setError(error?.response?.data?.message || "login failed"));
     }
 }
 
@@ -46,7 +67,6 @@ export const employerAddCompanyDeatils = (userData) => async (dispatch) => {
         dispatch(currentEmployee())
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "login failed"));
     }
 }
@@ -60,7 +80,25 @@ export const registerEmployee = (userData) => async (dispatch) => {
         dispatch(currentEmployee())
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
+        let errorMessage = "Signin failed"; // Default error message
+        
+        if (error?.response?.status === 401) { // 401 is the standard code for unauthorized
+            errorMessage = "Employer with this email already exists.";
+        } else if (error?.response?.data?.message) {
+            errorMessage = error.response.data.message; // Server-provided error message
+        }
+        
+        dispatch(setError(errorMessage));
+        
+        toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         dispatch(setError(error?.response?.data?.message || "register failed"));
     }
 }
@@ -73,7 +111,6 @@ export const AddCompanydetails = (userData) => async (dispatch) => {
         dispatch(currentEmployee())
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "register failed"));
     }
 }
@@ -87,7 +124,6 @@ export const logoutEmployee = (userData) => async (dispatch) => {
         localStorage.removeItem("token")
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "Register failed"));
     }
 }
@@ -101,7 +137,6 @@ export const updateEmployee = (details) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "get current user failed"));
     }
 }
@@ -113,7 +148,6 @@ export const sendMail = (email) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "get current user failed"));
     }
 }
@@ -126,7 +160,6 @@ export const resetPassword = (password, id) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "get current user failed"));
     }
 }
@@ -139,7 +172,6 @@ export const allApplications = (filters = {}) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "Request failed"));
     }
 };
@@ -160,7 +192,7 @@ export const allApplications = (filters = {}) => async (dispatch) => {
 //         dispatch(setLoading(false));
 //     } catch (error) {
 //         dispatch(setLoading(false));
-//         console.error(error);
+//      
 //         dispatch(setError(error?.response?.data?.message || "get current user failed"));
 //     }
 // }
@@ -196,7 +228,6 @@ export const updateStatus = (requestData) => async (dispatch) => {
         dispatch(setLoading(false));
     } catch (error) {
         dispatch(setLoading(false));
-        console.error(error);
         dispatch(setError(error?.response?.data?.message || "Update status failed"));
     }
 };

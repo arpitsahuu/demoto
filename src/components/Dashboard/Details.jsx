@@ -80,10 +80,6 @@ const Details = ({ id, setTab }) => {
                 <p className="text-sm md:text-base">{job.description}</p>
               </div>
 
-              <div className="mt-4">
-                <h1 className="text-md font-semibold">Requirements</h1>
-                <p className="text-sm md:text-base">{job.preferences}</p>
-              </div>
 
               <div className="mt-4">
                 <h1 className="text-md font-semibold">Skills</h1>
@@ -93,6 +89,31 @@ const Details = ({ id, setTab }) => {
                   </p>
                 ))}
               </div>
+              {
+                job.description.length != 0 &&
+                <div className="mt-3">
+                  <h1 className="text-xl font-semibold">Description</h1>
+                  {job?.description?.map((description, index) => (
+                    <ol key={description} className="text-base py-1 capitalize list-disc ps-4">
+                      <li>{description}</li>
+                    </ol>
+                  ))}
+                </div>
+              }
+
+              
+                {
+                  job.preferences.length != 0 &&
+                  <div className="mt-3">
+                  <h1 className="text-xl font-semibold">Preferences</h1>
+                  {job?.preferences?.map((preferences, index) => (
+                    <ol key={preferences} className="text-base py-1 capitalize list-disc ps-4">
+                      <li>{preferences}</li>
+                    </ol>
+                  ))}
+                </div>
+                }
+                
 
               <div className="flex items-center justify-end mt-6">
                 <button

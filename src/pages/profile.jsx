@@ -45,6 +45,7 @@ const Profile = () => {
   const router = useRouter();
   const [studentProfile, setStudentProfile] = useState({
     avatar: { fileId: "", url: "" },
+    name:"",
     firstname: "",
     lastname: "",
     email: "apj@example.com",
@@ -169,7 +170,7 @@ const Profile = () => {
 
               <div className="flex justify-center items-center flex-col gap-[5px] w-[47vw]">
                 <p className="text-lg font-semibold flex items-center gap-[20px]">
-                  {studentProfile.firstname} {studentProfile.lastname}
+                  {studentProfile && studentProfile?.name}
                   <span>
                     <MdModeEditOutline
                       onClick={() => setGeneralInfo((e) => !e)}
@@ -199,7 +200,7 @@ const Profile = () => {
                 <div className="flex  justify-center items-center gap-1 font-[300] text-[15px]">
                   <MdOutlineMenuBook className="text-[#8C8594] flex items-center" />
                   <p className="flex items-center">
-                    {studentProfile?.course || "Bca"}
+                    { studentProfile?.course || "Bca"}
                   </p>
                 </div>
                 <div className="flex items-center gap-1 font-[300] text-[15px]">
@@ -217,22 +218,22 @@ const Profile = () => {
               <div className="flex flex-col gap-2 ">
                 <div>
                   <p className="text-[13px] text-[#79777a]">Email ID</p>
-                  <p className="text-[14px]">{studentProfile.email}</p>
+                  <p className="text-[14px]">{studentProfile?.email}</p>
                 </div>
                 <div>
                   <p className="text-[13px] text-[#79777a]">Current Location</p>
-                  <p className="text-[14px]">Bhopal</p>
+                  <p className="text-[14px]">{studentProfile && studentProfile?.city}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-2">
                 <div>
                   <p className="text-[13px] text-[#79777a]">Phone Number</p>
-                  <p className="text-[14px]">{studentProfile.contact}</p>
+                  <p className="text-[14px]">+91 { studentProfile && studentProfile?.contact}</p>
                 </div>
 
                 <div>
                   <p className="text-[13px] text-[#79777a]">Gender</p>
-                  <p className="text-[14px]">{studentProfile.gender}</p>
+                  <p className="text-[14px]">{studentProfile?.gender}</p>
                 </div>
               </div>
             </div>

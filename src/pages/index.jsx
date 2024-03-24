@@ -38,26 +38,45 @@ export default function Home() {
   const [resentJobs, setresentJobs] = useState([]);
 
   const searchJobs = async () => {
-    const response = await axios.post(
-      `${basePath}/search?q=${searchTerm}&location=${searchLocation}`
-    );
-    setJobs(response.data);
+    try {
+      const response = await axios.post(
+        `${basePath}/search?q=${searchTerm}&location=${searchLocation}`
+      );
+      setJobs(response.data);   
+    } catch (error) {
+      toast.error("Server isn't Working pleas visit again after some time  !", {
+        position: "top-left"
+      });
+    }
   };
 
   const topcompany = async () => {
-    const response = await axios.post(
-      `${basePath}/topcompony`
-    );
-    settopCompany(response.data.jobs);
-    console.log(response.data.jobs);
+
+    try {
+      const response = await axios.post(
+        `${basePath}/topcompony`
+      );
+      settopCompany(response.data.jobs);  
+    } catch (error) {
+      toast.error("Server isn't Working pleas visit again after some time  !", {
+        position: "top-left"
+      });
+    }
   };
 
   const resentCompany = async () => {
-    const response = await axios.post(
-      `${basePath}/resentjobs`
-    );
-    setresentJobs(response.data.jobs);
-    console.log(response.data.jobs);
+
+    try {
+      const response = await axios.post(
+        `${basePath}/resentjobs`
+      );
+      setresentJobs(response.data.jobs); 
+    } catch (error) {
+      toast.error("Server isn't Working pleas visit again after some time  !", {
+        position: "top-left"
+      });
+    }
+    
   };
 
   useEffect(() => {
@@ -273,7 +292,7 @@ export default function Home() {
             <div className="w-[250px]   h-[300px]  rounded-lg  bg-[#35cc61] flex flex-col justify-center items-center text-white">
               <AiOutlineSafety className="text-[70px]" />
               <h6 className=" mt-3">Verified Jobs</h6>
-              <p className="text-[#ddd]">100 verified and save jobs%</p>
+              <p className="text-[#ddd]">100% verified and save jobs</p>
             </div>
 
             {/* <div className=" w-[100vw] mt-20 flex items-center justify-center   ">
@@ -372,7 +391,7 @@ export default function Home() {
             {topCompany?.map((e, i) => (
               <>
                 <div
-                  key={i}
+                  key={e._id}
                   onClick={() => onJobClick(e._id)}
                   className="w-[250px] md:w-[300px] flex-shrink-0 h-[230px] py-[25px] md:py-[25px] px-[10px] md:px-[20px]  ml-[30px]  rounded-lg  border-gray-50 hover:border-gray-200  hover:shadow-md border border-slate-300 overflow-hidden"
                 >
@@ -438,7 +457,7 @@ export default function Home() {
             {resentJobs.map((e, i) => (
               <>
                 <div
-                  key={i}
+                  key={e._id}
                   onClick={() => onJobClick(e._id)}
                   className="w-[250px] md:w-[300px] flex-shrink-0 h-[230px] py-[25px] md:py-[25px] px-[10px] md:px-[20px]  ml-[30px] rounded-lg border-gray-50 hover:border-gray-200  hover:shadow-md border border-slate-300 "
                 >

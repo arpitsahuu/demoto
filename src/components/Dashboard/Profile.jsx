@@ -295,6 +295,33 @@ const Profile = () => {
                       </p>
                     </div>
                   </div>
+
+                  <div className="sm:col-span-4 w-full">
+                    <label
+                      htmlFor="contract"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Location
+                    </label>
+                    <div className="mt-2">
+                      <p className="prof-inp block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400    sm:text-sm sm:leading-6">
+                        {employee?.location}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="sm:col-span-4 w-full">
+                    <label
+                      htmlFor="contract"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Industry
+                    </label>
+                    <div className="mt-2">
+                      <p className="prof-inp block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400    sm:text-sm sm:leading-6">
+                        {employee?.industry}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

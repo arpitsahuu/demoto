@@ -82,7 +82,7 @@ useEffect(() => {
                 key={index}
                 className="bg-white border border-slate-300"
               >
-                <td className="py-2 px-4 ">{`${student?.firstname} ${student?.lastname}`}</td>
+                <td className="py-2 px-4 ">{`${student?.name} `}</td>
                 <td className="py-2 px-4 ">{student?.email}</td>
                 <td className="py-2 px-4 ">{student?.applications?.length}</td>
                 <td className="py-2 px-4 ">

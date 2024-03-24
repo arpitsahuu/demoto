@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { setAllJobs, setApplication, setError, setLoading, setPage, setStudent } from '../sclices/studentSclice';
 const basePath = `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/user`
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const config = () => {
 
@@ -19,10 +21,27 @@ export const loginStudent = (userData) => async (dispatch) => {
         localStorage.setItem("token", data.token);
         dispatch(setStudent(data.student));
     } catch (error) {
-        console.error("Login Error:", error);
+        let errorMessage = "Login failed"; // Default error message
+
+        if (error?.response?.status === 500) { // 401 is the standard code for unauthorized
+            errorMessage = "Wrong password provided. Please try again.";
+        } else if (error?.response?.data?.message) {
+            errorMessage = error.response.data.message; // Server-provided error message
+        }
+        
+        toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         dispatch(setError(error?.response?.data?.message || "Login failed"));
     } finally {
         dispatch(setLoading(false));
+        
     }
 };
 
@@ -35,6 +54,23 @@ export const registerStudent = (userData) => async (dispatch) => {
         dispatch(setStudent(data.student))
     } catch (error) {
         dispatch(setLoading(false));
+        let errorMessage = "Signin failed"; // Default error message
+        
+        if (error?.response?.status === 401) { // 401 is the standard code for unauthorized
+            errorMessage = "User with this email already exists.";
+        } else if (error?.response?.data?.message) {
+            errorMessage = error.response.data.message; // Server-provided error message
+        }
+        
+        toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         dispatch(setError(error?.response?.data?.message || "registerStudent failed"));
     }
 }

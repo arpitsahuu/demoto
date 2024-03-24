@@ -49,7 +49,7 @@ const EditResume = () => {
     dispatch(asynDeletjobRes(id))
   }
   const setAddIntership = () => {
-    router.push("/resumeForms/AddIntership");
+    router.push("/resumeForms/AddInternship");
   }
   const setAddJob = () => {
     router.push("/resumeForms/AddJobs");
@@ -118,7 +118,7 @@ const EditResume = () => {
       <div className="w-full border-[1px] border-slate-400   px-4 py-3 flex justify-between sm:px-16 sm:py-7">
         <div>
           <h3 className="text-xl uppercase font-semibold pb-1 text-slate-800 sm:text-3xl ">
-            {studentProfile.firstname} {studentProfile.lastname}
+            {studentProfile?.name}
           </h3>
           <h4 className=" text-zinc-600 text-xs sm:pb-1 sm:text-sm"><span>Email:</span> {studentProfile.email} </h4>
           { studentProfile.contact && <h4 className="text-zinc-600 text-xs sm:pb-1 sm:text-sm"><span>Contact:</span> {" "}

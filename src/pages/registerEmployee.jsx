@@ -33,9 +33,11 @@ const RegisterEmployee = () => {
 
   useEffect(() => {
     if (employee) {
-      router.push("/");
+      router.push("/addComponyDeatils") 
     }
-  }, []);
+  }, [employee]);
+
+  
 
   // useEffect(() => {
   //   if (error) {

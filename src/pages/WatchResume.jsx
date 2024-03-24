@@ -107,7 +107,7 @@ function Resume() {
         <div className="mb-3 flex justify-between px-8 py-8 bg-slate-300">
           <div className="flex justify-center">
             <h1 className=" uppercase text-2xl sm:text-4xl ">
-              {student?.firstname} {student?.lastname}
+              {student?.name}
             </h1>
           </div>
           <div className=' font-medium text-[10px] sm:text-sm mt-1 " '>

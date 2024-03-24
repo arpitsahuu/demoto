@@ -248,7 +248,7 @@ const Main = () => {
                   key={index}
                   className={index % 2 === 0 ? "bg-orange-100" : "bg-white"}
                 >
-                  <td className="py-2 px-4 text-center">{`${e?.studentId?.firstname} ${e?.studentId?.lastname}`}</td>
+                  <td className="py-2 px-4 text-center">{`${e?.studentId?.name}`}</td>
                   <td className="py-2 px-4 text-center">
                     {e?.studentId?.email}
                   </td>

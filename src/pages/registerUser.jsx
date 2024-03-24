@@ -55,7 +55,7 @@ const RegisterUser = () => {
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
-              Complete your profile! 👋
+            SAtISFIED JOB- Your Path to Success!! 👋
             </p>
             <p className="text-[16px]">
               Unlock 500+ jobs from top companies and receive direct calls from
@@ -68,19 +68,19 @@ const RegisterUser = () => {
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Enhance Your Skills</p>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Access Exclusive Job Listings</p>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Personalized Job Recommendations</p>
             </div>
           </div>
           <div className="flex gap-8 text-2xl text-white absolute bottom-8 ">
@@ -105,33 +105,33 @@ const RegisterUser = () => {
           className="flex w-[300px] md:w-[50%] flex-col  gap-[10px] items-center justify-center"
         >
           <div className="w-full">
-            <p className="text-[18px] my-2 font-[500]">First Name</p>
+            <p className="text-[18px] my-2 font-[500]">Name</p>
             <input
               type="text"
               style={{ border: "2px solid #D1CED4" }}
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
-              placeholder="please enter your First Name"
-              {...register("firstname", { required: true })}
+              placeholder="please enter your name"
+              {...register("name", { required: true })}
             />
             {errors.firstname && (
               <p className="text-[15px] text-red-500">
-                please Enter first Name.
+                please Enter first name.
               </p>
             )}
           </div>
 
           <div className="w-full">
-            <p className="text-[18px] my-2 font-[500]">Last Name</p>
+            <p className="text-[18px] my-2 font-[500]">Contact</p>
             <input
               type="text"
               style={{ border: "2px solid #D1CED4" }}
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
-              placeholder="please enter your First Name"
-              {...register("lastname", { required: true })}
+              placeholder="please enter your contact"
+              {...register("contact", { required: true })}
             />
             {errors.lastname && (
               <p className="text-[15px] text-red-500">
-                Please Enter last Name.
+                Please Enter contact.
               </p>
             )}
           </div>
@@ -151,9 +151,25 @@ const RegisterUser = () => {
           </div>
 
           <div className="w-full">
-            <p className="text-[18px] my-2 font-[500]">Password</p>
+            <p className="text-[18px] my-2 font-[500]">City</p>
             <input
               type="text"
+              style={{ border: "2px solid #D1CED4" }}
+              className="  px-3 py-2  w-[100%] rounded-md outline-none"
+              placeholder="please enter your current city"
+              {...register("city", { required: true })}
+            />
+            {errors.email && (
+              <p className="text-[15px] text-red-500">Please Enter City.</p>
+            )}
+          </div>
+
+          
+
+          <div className="w-full">
+            <p className="text-[18px] my-2 font-[500]">Password</p>
+            <input
+              type="password"
               style={{ border: "2px solid #D1CED4" }}
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
               placeholder="please enter your password "
