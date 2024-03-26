@@ -68,19 +68,43 @@ const LoginUser = () => {
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Resume Builder</p>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Access Exclusive Job Listings</p>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
                 <TiTick className="text-[#37283A]" />
               </div>
-              <p>Takes only 4 steps</p>
+              <p>Personalized Job Recommendations</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Direct Communication with Recruiters</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Application Tracking and Management</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Apply Directly for Positions</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Career Development Resources</p>
             </div>
           </div>
         </div>

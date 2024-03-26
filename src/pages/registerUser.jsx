@@ -55,7 +55,7 @@ const RegisterUser = () => {
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">
-            SAtISFIED JOB- Your Path to Success!! 👋
+            SATISFIED JOB- Your Path to Success!! 👋
             </p>
             <p className="text-[16px]">
               Unlock 500+ jobs from top companies and receive direct calls from
@@ -81,6 +81,30 @@ const RegisterUser = () => {
                 <TiTick className="text-[#37283A]" />
               </div>
               <p>Personalized Job Recommendations</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Direct Communication with Recruiters</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Application Tracking and Management</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Apply Directly for Positions</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-[16px] h-[16px] flex  items-center justify-center rounded-full bg-[#C8C2C9]">
+                <TiTick className="text-[#37283A]" />
+              </div>
+              <p>Career Development Resources</p>
             </div>
           </div>
           <div className="flex gap-8 text-2xl text-white absolute bottom-8 ">

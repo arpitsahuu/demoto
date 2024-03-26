@@ -72,7 +72,7 @@ useEffect(() => {
               <th className="py-2 px-4 font-semibold text-start">Name</th>
               <th className="py-2 px-4 font-semibold text-start">Email</th>
               <th className="py-2 px-4 font-semibold text-start">Job Applyed</th>
-              <th className="py-2 px-4 font-semibold text-start">Resume</th>
+              {/* <th className="py-2 px-4 font-semibold text-start">Resume</th> */}
               <th className="py-2 px-4 font-semibold text-start">Delete</th>
             </tr>
           </thead>
@@ -85,11 +85,11 @@ useEffect(() => {
                 <td className="py-2 px-4 ">{`${student?.name} `}</td>
                 <td className="py-2 px-4 ">{student?.email}</td>
                 <td className="py-2 px-4 ">{student?.applications?.length}</td>
-                <td className="py-2 px-4 ">
+                {/* <td className="py-2 px-4 ">
                 {
                     student?.resumePdf?.fileId ? <a href={student?.resumePdf?.url}  target="_blank">Doanload</a> : <Link href={`/watchResumeEmploye/${student?._id}`}>Watch</Link>
                   }
-                </td>
+                </td> */}
                 <td className="py-2 px-4 text-center">
                 <button onClick={() =>DeletUser(student?._id)} className=" bg-sky-800 text-white px-2 py-1 rounded-md text-center">Delete</button>
                 </td>

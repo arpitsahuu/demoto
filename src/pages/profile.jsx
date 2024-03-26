@@ -200,7 +200,7 @@ const Profile = () => {
                 <div className="flex  justify-center items-center gap-1 font-[300] text-[15px]">
                   <MdOutlineMenuBook className="text-[#8C8594] flex items-center" />
                   <p className="flex items-center">
-                    { studentProfile?.course || "Bca"}
+                    { studentProfile?.course || "BCA"}
                   </p>
                 </div>
                 <div className="flex items-center gap-1 font-[300] text-[15px]">
@@ -208,8 +208,7 @@ const Profile = () => {
                   <p>{studentProfile?.city}</p>
                 </div>
                 <div className="flex items-center gap-1 font-[500] text-green text-[15px]">
-                  <AiOutlineShareAlt className="" />
-                  <p>Share Profile</p>
+                 Job Application: {studentProfile?.jobapplications?.length}
                 </div>
               </div>
             </div>

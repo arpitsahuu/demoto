@@ -33,9 +33,9 @@ const addComponyDeatils = () => {
         website
     }
     dispatch(employerAddCompanyDeatils(company)).then(() =>{
-      router.push("/")
+      router.push("/dashboard")
     })
-    router.push("/")
+    router.push("/dashboard")
 
   }
 

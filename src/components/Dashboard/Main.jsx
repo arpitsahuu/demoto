@@ -255,11 +255,11 @@ const Main = () => {
                   <td className="py-2 px-4 text-center">{e.jobId?.title}</td>
                   <td className="py-2 px-4 text-center">
                     {e?.studentId.resumePdf.fileId ? (
-                      <a href={e?.studentId.resumePdf.url} target="_blank">
+                      <a href={e?.studentId?.resumePdf?.url} target="_blank">
                         Doanload
                       </a>
                     ) : (
-                      <Link href={`/WatchResumeEmploye/${e?.studentId._id}`}>
+                      <Link href={`/WatchResumeEmploye/${e?.studentId?._id}`}>
                         Watch
                       </Link>
                     )}

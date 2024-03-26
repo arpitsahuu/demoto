@@ -6,7 +6,7 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 import { CiEdit } from "react-icons/ci";
 import { IoIosSearch, IoMdMenu } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { currentEmployee } from "@/redux/actions/employeeAction";
+import { currentEmployee, logoutEmployee } from "@/redux/actions/employeeAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -44,6 +44,11 @@ const Layout = ({ children, setTab, tab }) => {
     dispatch(currentEmployee());
   }, []);
 
+  function handelLogout() {
+    dispatch(logoutEmployee());
+    router.push("/");
+  }
+
   useEffect(() => {
     if (!employee) {
       dispatch(currentEmployee());
@@ -65,7 +70,6 @@ const Layout = ({ children, setTab, tab }) => {
     }
   };
   const handleLinkClick = (value) => {
-    console.log(value);
     handleClick();
     setTab(value);
   };
@@ -93,6 +97,8 @@ const Layout = ({ children, setTab, tab }) => {
                 >
                   <MdDashboard /> Dashboard
                 </h3>
+
+                
               
               <h3
                 className={`flex items-center gap-1 cursor-pointer  ${
@@ -156,6 +162,12 @@ const Layout = ({ children, setTab, tab }) => {
                   <FaUsersViewfinder /> Website Jobs
                 </h3>
               )}
+              <h3
+                  className={`flex items-center gap-1  cursor-pointer `}
+                  onClick={handelLogout}
+                >
+                  <MdDashboard /> Logout
+                </h3>
             </div>
             <div className="social-links flex gap-5">
               <h5>

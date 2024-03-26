@@ -65,7 +65,11 @@ const Header = () => {
           href={"/"}
           className="text-[#4080ED] text-[20px] font-semibold flex items-center"
         >
-          <img className="h-[25px] w-[25px] me-1" src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710332234/avaters/yeixhkqcfb4t15gxgqzh.jpg" alt="" />
+          <img
+            className="h-[25px] w-[25px] me-1"
+            src="https://res.cloudinary.com/dcj2gzytt/image/upload/v1710332234/avaters/yeixhkqcfb4t15gxgqzh.jpg"
+            alt=""
+          />
           SATISFIED <span className="text-black">JOB</span>
         </Link>
         <div className="flex items-center gap-[20px] font-semibold">
@@ -82,6 +86,12 @@ const Header = () => {
               {employee && (
                 <>
                   <Link href="/dashboard">Dashboard</Link>
+                  <h3
+                    className={`flex items-center gap-1 cursor-pointer `}
+                    onClick={() => handleLinkClick("Profile")}
+                  >
+                    {/* <CgProfile /> Profile */}
+                  </h3>
                 </>
               )}
 
@@ -117,85 +127,88 @@ const Header = () => {
 
       <>
         <div className="sidebar z-50 md:hidden relative" ref={sidebar}>
-          <RxCross1  className=" absolute right-3 top-3" onClick={handleClick} />
-        {/* <div className="flex justify-end pe-5 ">
+          <RxCross1 className=" absolute right-3 top-3" onClick={handleClick} />
+          {/* <div className="flex justify-end pe-5 ">
         <RxCross1 />
         </div> */}
           <div className="text-center text-2xl font-semibold cursor-pointer">
             <Link href={"/"}>SatisfiedJob</Link>
           </div>
           <div className="px-[40px] mt-[40px] py-[10px] flex flex-col gap-[40px]">
-            { student && <div className="flex items-center justify-start gap-1">
-              <FaHome />
-              <Link href="/" className="font-md">
-                <p> Home</p>
-              </Link>
-            </div>}
+            {student && (
+              <div className="flex items-center justify-start gap-1">
+                <FaHome />
+                <Link href="/" className="font-md">
+                  <p> Home</p>
+                </Link>
+              </div>
+            )}
 
-            { student && <div className="flex items-center  justify-start gap-1">
-              <MdWork />
-              <Link href="/Job" className="">
-                Jobs
-              </Link>
-            </div>}
+            {student && (
+              <div className="flex items-center  justify-start gap-1">
+                <MdWork />
+                <Link href="/Job" className="">
+                  Jobs
+                </Link>
+              </div>
+            )}
 
-            { student && <div className="flex items-center  justify-start gap-1">
-              <IoIosBookmark />
-              <Link href="/applied" className="">
-                Applied
-              </Link>
-            </div>}
+            {student && (
+              <div className="flex items-center  justify-start gap-1">
+                <IoIosBookmark />
+                <Link href="/applied" className="">
+                  Applied
+                </Link>
+              </div>
+            )}
 
-            { student && <div className="flex items-center  justify-start  gap-1">
-              <BsPersonFillAdd />
-              <Link href="/profile" className="">
-                Profile
-              </Link>
-            </div>}
-            { employee && <div className="flex items-center  justify-start  gap-1">
-              <BsPersonFillAdd />
-              <Link href={"/dashboard"} className="">
-                DashBoard
-              </Link>
-            </div>}
+            {student && (
+              <div className="flex items-center  justify-start  gap-1">
+                <BsPersonFillAdd />
+                <Link href="/profile" className="">
+                  Profile
+                </Link>
+              </div>
+            )}
+            {employee && (
+              <div className="flex items-center  justify-start  gap-1">
+                <BsPersonFillAdd />
+                <Link href={"/dashboard"} className="">
+                  DashBoard
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </>
 
       <div className="w-[100%] h-[40px]  md:hidden flex items-center gap-2 px-2 py-[30px]  justify-between fixed bg-gray ">
-           
-      {
-          employee  &&
-
-        <div className="flex gap-3 items-center text-[20px]">
-          <div className="nav-right text-[20px]">
-            <IoMdMenu
-              ref={menuBtn}
-              id="menu-btn"
-              onClick={handleClick}
-              className="md:hidden"
-            />
-
+        {employee && (
+          <div className="flex gap-3 items-center text-[20px]">
+            <div className="nav-right text-[20px]">
+              <IoMdMenu
+                ref={menuBtn}
+                id="menu-btn"
+                onClick={handleClick}
+                className="md:hidden"
+              />
+            </div>
           </div>
-        </div>
-        }
-        
-        {
-          student  &&
+        )}
 
-        <div className="flex gap-3 items-center text-[20px]">
-          <div className="nav-right text-[20px]">
-            <IoMdMenu
-              ref={menuBtn}
-              id="menu-btn"
-              onClick={handleClick}
-              className="md:hidden"
-            />
-
+        {student && (
+          <div className="flex gap-3 items-center text-[20px]">
+            <div className="nav-right text-[20px]">
+              <IoMdMenu
+                ref={menuBtn}
+                id="menu-btn"
+                onClick={handleClick}
+                className="md:hidden"
+              />
+            </div>
           </div>
-        </div>
-        }
-      
+        )}
+
         <h1 className="text-green text-[20px] font-semibold flex items-center ms-1 mt-3 sm:mt-0 sm:ms-0">
           SATISFIED <span className="text-black">JOB</span>
         </h1>
@@ -213,7 +226,7 @@ const Header = () => {
           ) : (
             <>
               <Link href={"/loginEmployee"} className="text-green mt-3 sm:mt-0">
-              Company
+                Company
               </Link>
               <Link
                 href={"/loginUser"}

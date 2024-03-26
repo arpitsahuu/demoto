@@ -152,7 +152,7 @@ export default function Home() {
               id="search"
               type="text"
               className=" focus:outline-none"
-              placeholder="Enter Job, skills and designations"
+              placeholder="Enter Jobs, Skills or Designations"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -207,16 +207,16 @@ export default function Home() {
 
           <div className="w-full flex justify-center gap-5 mt-4 sm:mt-9 text-slate-600">
             <button className="serchbtn border rounded-3xl px-4 py-1 border-slate-300" id="mentbtn">
-              ment stack developer
+              Mern Stack Developer
             </button>
             <button className="border text-xs sm:text-sm rounded-3xl px-4 py-1 border-slate-300">
-              full stack develooper
+              Full Stack Develooper
             </button>
             <button
               id="serchbtnth"
               className="serchbtn border rounded-3xl px-4 py-1 border-slate-300"
             >
-              Front end developer
+              Front End Developer
             </button>
           </div>
           <div className="w-full flex justify-center items-center gap-5 mt-8 sm:mt-32">

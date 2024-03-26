@@ -39,7 +39,7 @@ const LoginEmployee = () => {
     if (!employee) {
       return;
     }
-    router.push("/");
+    router.push("/dashboard");
   }, [employee]);
 
   return (

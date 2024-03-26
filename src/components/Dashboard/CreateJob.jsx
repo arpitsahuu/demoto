@@ -124,51 +124,8 @@ const JobForm = () => {
           <span className="text-red-500 text-sm">Skills are required</span>
         )}
       </div> */}
-      <div>
-        <label htmlFor="skills">
-          Skills:{" "}
-          <span className=" font-normal text-xs text-slate-500">
-            (please press enter button to add skill)
-          </span>{" "}
-        </label>
-        <input
-          type="text"
-          id="skills"
-          value={newSkill}
-          placeholder="Ex. communication"
-          onKeyDown={handleSkillChange}
-          onChange={handleInputChange}
-        />
-        <ul className="flex  gap-1 justify-start items-center my-2">
-          {skills.map((skill, index) => (
-            <li
-              className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-center gap-1"
-              key={index}
-              onClick={() => handleRemoveSkill(skill)}
-            >
-              <span>{skill}</span>
-              <IoMdClose />
-            </li>
-          ))}
-        </ul>
-        <button
-          onClick={addSkill}
-          className=" px-2 py-2 bg-[#4080ED] text-white rounded-lg mt-1 mb-1"
-        >
-          Add Skill
-        </button>
-      </div>
-      <div>
-        <label htmlFor="jobType">Job Type:</label>
-        <select id="jobType" {...register("jobType", { required: true })}>
-          <option value="">Select Job Type</option>
-          <option value="In Office">In Office</option>
-          <option value="Remote">Remote</option>
-        </select>
-        {errors.jobType && (
-          <span className="text-red-500 text-sm">Job Type is required</span>
-        )}
-      </div>
+    
+      
       <div>
         <label htmlFor="category">Category:</label>
         <select id="category" {...register("category", { required: true })}>
@@ -253,6 +210,40 @@ const JobForm = () => {
         )}
       </div>
       <div>
+        <label htmlFor="skills">
+          Skills:{" "}
+          <span className=" font-normal text-xs text-slate-500">
+            (please press enter button to add skill)
+          </span>{" "}
+        </label>
+        <input
+          type="text"
+          id="skills"
+          value={newSkill}
+          placeholder="Ex. communication"
+          onKeyDown={handleSkillChange}
+          onChange={handleInputChange}
+        />
+        <ul className="flex  gap-1 justify-start items-center my-2">
+          {skills.map((skill, index) => (
+            <li
+              className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-center gap-1"
+              key={index}
+              onClick={() => handleRemoveSkill(skill)}
+            >
+              <span>{skill}</span>
+              <IoMdClose />
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={addSkill}
+          className=" px-2 py-2 bg-[#4080ED] text-white rounded-lg mt-1 mb-1"
+        >
+          Add Skill
+        </button>
+      </div>
+      <div>
         <label htmlFor="descriptionPoints">Description Points:</label>
         <input
           type="text"
@@ -312,6 +303,17 @@ const JobForm = () => {
           Add Preference
         </button>
         
+      </div>
+      <div>
+        <label htmlFor="jobType">Job Type:</label>
+        <select id="jobType" {...register("jobType", { required: true })}>
+          <option value="">Select Job Type</option>
+          <option value="In Office">In Office</option>
+          <option value="Remote">Remote</option>
+        </select>
+        {errors.jobType && (
+          <span className="text-red-500 text-sm">Job Type is required</span>
+        )}
       </div>
 
       <button type="submit" className=" mt-7 bg-[#4080ED]">
