@@ -67,7 +67,7 @@ const ViewAllJobs = ({ setTab, setId }) => {
                       </h1>
 
                       <div className="flex gap-2">
-                        {skills.map((e,i) => {
+                        {skills?.map((e,i) => {
                           return (
                             <>
                               <p key={i} className="text-sm text-[#8A8A8A]">{e}</p>
@@ -77,7 +77,7 @@ const ViewAllJobs = ({ setTab, setId }) => {
                       </div>
                     </div>
                     <img
-                      src={employee.organisationlogo.url}
+                      src={employee?.organisationlogo?.url}
                       className="h-[18px] "
                       alt=""
                     />

@@ -15,6 +15,7 @@ import { FaChalkboardUser } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import { ImFacebook2 } from "react-icons/im";
 import { BsTwitterX } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 
 const Layout = ({ children, setTab, tab }) => {
   const router = useRouter();
@@ -109,17 +110,6 @@ const Layout = ({ children, setTab, tab }) => {
                 <CgProfile /> Profile
               </h3>
               {
-                !employee?.isAdmin &&
-                <h3
-                className={`flex items-center gap-1  cursor-pointer  ${
-                  tab === "ViewAllJobs" ? "bg-white text-black" : ""
-                }`}
-                onClick={() => handleLinkClick("ViewAllJobs")}
-              >
-                <FaUsersViewfinder /> View all jobs
-              </h3>
-              }
-              {
                 !employee?.isAdmin && 
                 <h3
                 className={`flex items-center gap-1  cursor-pointer ${
@@ -130,6 +120,18 @@ const Layout = ({ children, setTab, tab }) => {
                 <CiEdit /> Create Job
               </h3>
               }
+              {
+                !employee?.isAdmin &&
+                <h3
+                className={`flex items-center gap-1  cursor-pointer  ${
+                  tab === "ViewAllJobs" ? "bg-white text-black" : ""
+                }`}
+                onClick={() => handleLinkClick("ViewAllJobs")}
+              >
+                <FaUsersViewfinder /> View all jobs
+              </h3>
+              }
+              
              
               
               {employee?.isAdmin && (
@@ -166,7 +168,7 @@ const Layout = ({ children, setTab, tab }) => {
                   className={`flex items-center gap-1  cursor-pointer `}
                   onClick={handelLogout}
                 >
-                  <MdDashboard /> Logout
+                  <MdLogout /> Logout
                 </h3>
             </div>
             <div className="social-links flex gap-5">

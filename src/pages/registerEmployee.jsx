@@ -26,9 +26,7 @@ const RegisterEmployee = () => {
   } = useForm();
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(registerEmployee(data)).then(() =>{
-      router.push("/addComponyDeatils")
-    })
+    dispatch(registerEmployee(data))
   });
 
   useEffect(() => {

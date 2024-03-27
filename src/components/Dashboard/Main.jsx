@@ -243,7 +243,7 @@ const Main = () => {
               </tr>
             </thead>
             <tbody className="bg-orange-100">
-              {allApplication?.map((e, index) => (
+              {allApplication && allApplication?.map((e, index) => (
                 <tr
                   key={index}
                   className={index % 2 === 0 ? "bg-orange-100" : "bg-white"}

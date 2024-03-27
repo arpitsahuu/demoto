@@ -23,7 +23,7 @@ const Details = ({ id, setTab }) => {
       {job && (
         <Container>
           <div className="min-h-screen pt-16 px-4 flex flex-col items-center justify-center">
-            <h1 className="text-xl font-semibold mb-4">{job.employer?.organisationname}</h1>
+            <h1 className="text-xl font-semibold mb-4">{job?.employer?.organisationname}</h1>
 
             <div className="bg-white w-full lg:max-w-[60%] p-6 rounded-md shadow-md">
               <div className="flex items-center mb-4">
@@ -34,15 +34,15 @@ const Details = ({ id, setTab }) => {
 
               <div className="flex justify-between mb-4">
                 <div>
-                  <h1 className="text-lg font-semibold">{job.title}</h1>
-                  <p className="text-sm text-gray-500">{job.employer?.organisationname}</p>
+                  <h1 className="text-lg font-semibold">{job?.title}</h1>
+                  <p className="text-sm text-gray-500">{job?.employer?.organisationname}</p>
                 </div>
-                <img src={job.employer?.organisationlogo.url} className="h-6" alt="" />
+                <img src={job?.employer?.organisationlogo?.url} className="h-6" alt="" />
               </div>
 
               <div className="flex items-center gap-2 font-semibold text-sm text-gray-600">
                 <FaLocationDot />
-                <p>{job.location}</p>
+                <p>{job?.location}</p>
               </div>
 
               <div className="mt-4">
@@ -52,7 +52,7 @@ const Details = ({ id, setTab }) => {
                       <MdOutlineNotStarted />
                       <p className="">Job Type</p>
                     </div>
-                    <h3 className="text-black">{job.jobType}</h3>
+                    <h3 className="text-black">{job?.jobType}</h3>
                   </div>
 
                   <div className="flex flex-col items-start text-sm text-gray-600">
@@ -60,7 +60,7 @@ const Details = ({ id, setTab }) => {
                       <IoCashOutline />
                       <p>CTC (ANNUAL)</p>
                     </div>
-                    <h3 className="text-black">{job.salary}</h3>
+                    <h3 className="text-black">{job?.salary}</h3>
                   </div>
 
                   <div className="flex flex-col items-start text-sm text-gray-600">
@@ -68,7 +68,7 @@ const Details = ({ id, setTab }) => {
                       <FaShoppingBag />
                       <p>Openings</p>
                     </div>
-                    <h3 className="text-black">{job.openings}</h3>
+                    <h3 className="text-black">{job?.openings}</h3>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@ const Details = ({ id, setTab }) => {
 
               <div className="mt-4">
                 <h1 className="text-md font-semibold">About the job</h1>
-                <p className="text-sm md:text-base">{job.description}</p>
+                <p className="text-sm md:text-base">{job?.description}</p>
               </div>
 
 
@@ -90,7 +90,7 @@ const Details = ({ id, setTab }) => {
                 ))}
               </div>
               {
-                job.description.length != 0 &&
+                job?.description?.length != 0 &&
                 <div className="mt-3">
                   <h1 className="text-xl font-semibold">Description</h1>
                   {job?.description?.map((description, index) => (
@@ -103,7 +103,7 @@ const Details = ({ id, setTab }) => {
 
               
                 {
-                  job.preferences.length != 0 &&
+                  job?.preferences?.length != 0 &&
                   <div className="mt-3">
                   <h1 className="text-xl font-semibold">Preferences</h1>
                   {job?.preferences?.map((preferences, index) => (

@@ -12,7 +12,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { employerAddCompanyDeatils, registerEmployee } from "@/redux/actions/employeeAction";
+import { currentEmployee, employerAddCompanyDeatils, registerEmployee } from "@/redux/actions/employeeAction";
 
 const addComponyDeatils = () => {
   const router = useRouter();
@@ -32,10 +32,7 @@ const addComponyDeatils = () => {
         location,
         website
     }
-    dispatch(employerAddCompanyDeatils(company)).then(() =>{
-      router.push("/dashboard")
-    })
-    router.push("/dashboard")
+    dispatch(employerAddCompanyDeatils(company))
 
   }
 
@@ -45,6 +42,16 @@ const addComponyDeatils = () => {
   //     toast.error(error);
   //   }
   // }, [error]);
+  useEffect(() => {
+    if(!employee){
+      dispatch(currentEmployee())
+    }
+    if(employee?.location){
+      console.log("run")
+      router.push("/dashboard")
+    }
+  }, [employee])
+  
 
   return (
     <div className="flex relative">
@@ -123,6 +130,7 @@ const addComponyDeatils = () => {
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
+              required
             >
               <option value="">Select Industry</option>
               <option value="IT">Information Technology</option>
@@ -145,6 +153,7 @@ const addComponyDeatils = () => {
               id="companySize"
                 value={companySize}
                 onChange={(e) => setCompanySize(e.target.value)}
+                required
             >
               <option value="">Select Company Size</option>
               <option value="Small">Small (1-50 employees)</option>
@@ -161,7 +170,8 @@ const addComponyDeatils = () => {
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
               placeholder="please enter your email address"
               value={location}
-                onChange={(e) => setLocation(e.target.value)}
+              onChange={(e) => setLocation(e.target.value)}
+              required
             />
           </div>
 
@@ -174,6 +184,7 @@ const addComponyDeatils = () => {
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
               placeholder="please give website URL" 
               onChange={(e) => setwebsite(e.target.value)}
+              required
             />
           </div>
 
@@ -185,12 +196,13 @@ const addComponyDeatils = () => {
               value={socialMedia}
               className="  px-3 py-2  w-[100%] rounded-md outline-none"
               placeholder="please give Social Media URL"
+              required
               onChange={(e) => setsocialMedia(e.target.value)}
             />
           </div>
 
           <div></div>
-          <button onClick={onSubmit} className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#4080ED] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
+          <button type="submit" className="transition duration-300 ease-in-out bg-blue-500 rounded-3xl  bg-[#4080ED] w-[100%] text-white bg-green font-bold py-2 px-4  focus:outline-none focus:shadow-outline  border-2  ">
             Add Deatils
           </button>
           

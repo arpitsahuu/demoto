@@ -125,40 +125,7 @@ const EditJobs = ({ id, setTab }) => {
             <span className="text-red-500 text-sm">Skills are required</span>
           )}
         </div> */}
-        <div>
-          <label htmlFor="skills">
-            Skills:{" "}
-            <span className=" font-normal text-xs text-slate-500">
-              (please press enter button to add skill)
-            </span>{" "}
-          </label>
-          <input
-            type="text"
-            id="skills"
-            value={newSkill}
-            placeholder="Ex. communication"
-            onKeyDown={handleSkillChange}
-            onChange={handleInputChange}
-          />
-          <ul className="flex  gap-1 justify-start items-center my-2">
-            {skills.map((skill, index) => (
-              <li
-                className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-center gap-1"
-                key={index}
-                onClick={() => handleRemoveSkill(skill)}
-              >
-                <span>{skill}</span>
-                <IoMdClose />
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={addSkill}
-            className=" px-2 py-2 bg-[#4080ED] text-white rounded-lg mt-1 mb-1"
-          >
-            Add Skill
-          </button>
-        </div>
+        
         <div>
           <label htmlFor="jobType">Job Type:</label>
           <select id="jobType" {...register("jobType", { required: true })}>
@@ -217,7 +184,7 @@ const EditJobs = ({ id, setTab }) => {
           )}
         </div> */}
         <div>
-          <label htmlFor="salary">Salary:</label>
+          <label htmlFor="salary">Salary <samp className="text-slate-500 text-sm">(CTC)</samp></label>
           <input
             type="NUMBER"
             id="salary"
@@ -241,6 +208,40 @@ const EditJobs = ({ id, setTab }) => {
           )}
         </div>
         <div>
+          <label htmlFor="skills">
+            Skills:{" "}
+            <span className=" font-normal text-xs text-slate-500">
+              (please press enter button to add skill)
+            </span>{" "}
+          </label>
+          <input
+            type="text"
+            id="skills"
+            value={newSkill}
+            placeholder="Ex. communication"
+            onKeyDown={handleSkillChange}
+            onChange={handleInputChange}
+          />
+          <ul className="flex  gap-1 justify-start items-center my-2">
+            {skills?.map((skill, index) => (
+              <li
+                className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-center gap-1"
+                key={index}
+                onClick={() => handleRemoveSkill(skill)}
+              >
+                <span>{skill}</span>
+                <IoMdClose />
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={addSkill}
+            className=" px-2 py-2 bg-[#4080ED] text-white rounded-lg mt-1 mb-1"
+          >
+            Add Skill
+          </button>
+        </div>
+        <div>
           <label htmlFor="descriptionPoints">Description Points:</label>
           <input
             type="text"
@@ -251,7 +252,7 @@ const EditJobs = ({ id, setTab }) => {
             onKeyDown={(e) => e.key === "Enter" && addDescription()}
           />
           <ol>
-            {description.map((description, index) => (
+            {description?.map((description, index) => (
               <li
                 key={index}
                 className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-between mt-1  overflow-hidden border-slate-400"
@@ -286,7 +287,7 @@ const EditJobs = ({ id, setTab }) => {
             onKeyDown={(e) => e.key === "Enter" && addPreference()}
           />
           <ul>
-            {preferences.map((preference, index) => (
+            {preferences?.map((preference, index) => (
               <li
                 className="border px-2 py-1  rounded-md bg-white cursor-pointer flex items-center justify-between mt-1  overflow-hidden border-slate-400"
                 key={index}

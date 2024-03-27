@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { RiLogoutBoxFill } from "react-icons/ri";
 const JobForm = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState("");
@@ -102,7 +103,7 @@ const JobForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title" className=" text-slate-800 mt-1">Title</label>
         <input
           type="text"
           id="title"
@@ -127,7 +128,7 @@ const JobForm = () => {
     
       
       <div>
-        <label htmlFor="category">Category:</label>
+        <label htmlFor="category" className=" text-slate-800 mt-2">Category</label>
         <select id="category" {...register("category", { required: true })}>
           <option value="">Select Category</option>
           <option value="Internship">Internship</option>
@@ -138,7 +139,7 @@ const JobForm = () => {
         )}
       </div>
       <div>
-        <label htmlFor="graduation">Graduates:</label>
+        <label htmlFor="graduation" className=" text-slate-800 mt-2">Graduates</label>
         <select id="graduation" {...register("graduation", { required: true })}>
           <option value="">Select graduation</option>
           <option value="Engineering">B.E/B.Tech</option>
@@ -152,7 +153,7 @@ const JobForm = () => {
       </div>
 
       <div>
-        <label htmlFor="openings">Openings:</label>
+        <label htmlFor="openings" className=" text-slate-800 mt-2">Openings</label>
         <input
           type="text"
           id="openings"
@@ -184,12 +185,12 @@ const JobForm = () => {
         )}
       </div> */}
       <div>
-        <label htmlFor="salary">Salary:</label>
+        <label htmlFor="salary" className=" text-slate-800 mt-2">Salary <samp className="text-slate-500 text-sm">(CTC)</samp></label>
         <input
           type="NUMBER"
           id="salary"
           placeholder="Ex. 50000"
-          className="w-full h-[40px] outline-none"
+          className="w-full h-[40px] border border-slate-300 px-2"
           {...register("salary", { required: true })}
         />
         {errors.salary && (
@@ -198,7 +199,7 @@ const JobForm = () => {
       </div>
 
       <div className="mb-2">
-        <label htmlFor="salary">location</label>
+        <label htmlFor="salary" className=" text-slate-800 mt-2">location</label>
         <input
           type="text"
           placeholder="Ex. Banglore "
@@ -210,8 +211,8 @@ const JobForm = () => {
         )}
       </div>
       <div>
-        <label htmlFor="skills">
-          Skills:{" "}
+        <label htmlFor="skills" className=" text-slate-800 mt-2">
+          Skills{" "}
           <span className=" font-normal text-xs text-slate-500">
             (please press enter button to add skill)
           </span>{" "}
@@ -244,7 +245,7 @@ const JobForm = () => {
         </button>
       </div>
       <div>
-        <label htmlFor="descriptionPoints">Description Points:</label>
+        <label htmlFor="descriptionPoints" className=" text-slate-800 mt-1">Description Points</label>
         <input
           type="text"
           id="descriptionPoints"
@@ -280,7 +281,7 @@ const JobForm = () => {
       </div>
 
       <div>
-        <label htmlFor="preferencePoints">Preference Points:</label>
+        <label htmlFor="preferencePoints" className=" text-slate-800 mt-1">Preference Points</label>
         <input
           type="text"
           id="preferencePoints"
@@ -305,7 +306,7 @@ const JobForm = () => {
         
       </div>
       <div>
-        <label htmlFor="jobType">Job Type:</label>
+        <label htmlFor="jobType" className=" text-slate-800 mt-2">Job Type</label>
         <select id="jobType" {...register("jobType", { required: true })}>
           <option value="">Select Job Type</option>
           <option value="In Office">In Office</option>
