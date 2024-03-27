@@ -42,6 +42,7 @@ const addComponyDeatils = () => {
   //     toast.error(error);
   //   }
   // }, [error]);
+
   useEffect(() => {
     if(!employee){
       dispatch(currentEmployee())

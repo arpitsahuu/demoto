@@ -22,7 +22,7 @@ const Details = ({ id, setTab }) => {
     <div>
       {job && (
         <Container>
-          <div className="min-h-screen pt-16 px-4 flex flex-col items-center justify-center">
+          <div className="min-h-screen  px-4 flex flex-col items-center mt-5">
             <h1 className="text-xl font-semibold mb-4">{job?.employer?.organisationname}</h1>
 
             <div className="bg-white w-full lg:max-w-[60%] p-6 rounded-md shadow-md">
@@ -75,11 +75,6 @@ const Details = ({ id, setTab }) => {
 
               <div className="w-full h-1 bg-gray-300 mt-4" />
 
-              <div className="mt-4">
-                <h1 className="text-md font-semibold">About the job</h1>
-                <p className="text-sm md:text-base">{job?.description}</p>
-              </div>
-
 
               <div className="mt-4">
                 <h1 className="text-md font-semibold">Skills</h1>
@@ -114,17 +109,6 @@ const Details = ({ id, setTab }) => {
                 </div>
                 }
                 
-
-              <div className="flex items-center justify-end mt-6">
-                <button
-                  onClick={() => {
-                    setTab("Edit");
-                  }}
-                  className="px-4 py-2 text-sm bg-sky-500 hover:bg-sky-700 text-white rounded-md transition-all duration-300"
-                >
-                  Edit
-                </button>
-              </div>
             </div>
           </div>
         </Container>

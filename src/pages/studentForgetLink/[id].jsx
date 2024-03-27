@@ -57,7 +57,7 @@ const ForgetPage = () => {
         <p>Back</p>
       </Link>
 
-      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-purple">
+      <div className="w-[40%] md:w-[60%] lg:w-[40%] hidden md:flex h-[100vh]  flex-col items-center py-[100px] bg-[#4080ED] ">
         <div className="text-white flex flex-col gap-3 ">
           <div>
             <p className="text-[25px] font-semibold">

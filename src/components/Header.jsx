@@ -7,6 +7,8 @@ import {
 } from "react-icons/md";
 import Container from "./Container";
 import Link from "next/link";
+import { MdDashboard } from "react-icons/md";
+
 import { IoLogoSnapchat, IoPerson } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsBagFill, BsPersonFill, BsPersonFillAdd } from "react-icons/bs";
@@ -86,12 +88,6 @@ const Header = () => {
               {employee && (
                 <>
                   <Link href="/dashboard">Dashboard</Link>
-                  <h3
-                    className={`flex items-center gap-1 cursor-pointer `}
-                    onClick={() => handleLinkClick("Profile")}
-                  >
-                    {/* <CgProfile /> Profile */}
-                  </h3>
                 </>
               )}
 
@@ -172,9 +168,9 @@ const Header = () => {
             )}
             {employee && (
               <div className="flex items-center  justify-start  gap-1">
-                <BsPersonFillAdd />
+                <MdDashboard />
                 <Link href={"/dashboard"} className="">
-                  DashBoard
+                DashBoard
                 </Link>
               </div>
             )}

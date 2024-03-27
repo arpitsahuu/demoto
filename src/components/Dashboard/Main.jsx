@@ -144,7 +144,7 @@ const Main = () => {
           <div className="bg-orange-500 text-white p-6 rounded-md flex items-center justify-between">
             <AiOutlineUserAdd className="text-4xl" />
             <span className="text-2xl ml-4">
-              {AdminInfo && AdminInfo?.employerCount} Employer
+              {AdminInfo && AdminInfo?.employerCount} Companies
             </span>
           </div>
 
@@ -164,7 +164,7 @@ const Main = () => {
 
       {!employee?.isAdmin && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-sky-500 text-white p-6 rounded-md flex items-center justify-between">
+          <div className="bg-sky-500 text-white p-6 rounded-md flex items-center justify-center">
             <AiOutlineUserAdd className="text-4xl" />
             <span className="text-2xl ml-4">
               {allApplication && allApplication?.length} Users Applied
@@ -212,8 +212,8 @@ const Main = () => {
       <div className="flex flex-col  gap-5 pt-5 mt-14 sm:mt-1">
           <div className="bg-green text-white px-5 py-5 rounded-md flex items-center justify-between barbtn">
             <span className="text-xl ml-4">
-              {AdminInfo && AdminInfo?.TodayEmployerRegistration} Today Employer
-              Registration
+              {AdminInfo && AdminInfo?.TodayEmployerRegistration}  Companies
+              Registered Today
             </span>
           </div>
           <div className="bg-green text-white p-6 rounded-md flex items-center justify-between barbtn">
